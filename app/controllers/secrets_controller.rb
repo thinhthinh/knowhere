@@ -1,5 +1,14 @@
 class SecretsController < ApplicationController
 
+  def index
+    @secrets = Secret.all
+    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude])
+  end
+
+  def show
+    @secret = Secret.find(params[:id])
+  end 
+
   def new
     @secret = Secret.new
   end
@@ -11,9 +20,7 @@ class SecretsController < ApplicationController
     end
   end
 
-  def show
-    @secret = Secret.find(params[:id])
-  end 
+
 
   private
 
