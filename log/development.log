@@ -1,0 +1,813 @@
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateSecrets (20141120161436)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "secrets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "address" text, "message" text, "longitude" float, "latitude" float, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141120161436"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["address", "11 Broadway, New York, NY"], ["created_at", "2014-11-20 16:38:02.908380"], ["latitude", 40.705313], ["longitude", -74.013911], ["message", "Flatiron is great!"], ["updated_at", "2014-11-20 16:38:02.908380"]]
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["address", "11 Broadway, New York, NY"], ["created_at", "2014-11-20 16:38:02.923805"], ["latitude", 40.705313], ["longitude", -74.013911], ["message", "Flatiron is okay!"], ["updated_at", "2014-11-20 16:38:02.923805"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["address", "11 Broadway, New York, NY"], ["created_at", "2014-11-20 16:38:02.927453"], ["latitude", 40.705313], ["longitude", -74.013911], ["message", "Flatiron is fun!"], ["updated_at", "2014-11-20 16:38:02.927453"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["address", "11 Broadway, New York, NY"], ["created_at", "2014-11-20 16:38:02.932615"], ["latitude", 40.705313], ["longitude", -74.013911], ["message", "Flatiron is wonderful!"], ["updated_at", "2014-11-20 16:38:02.932615"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-20 12:10:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/thinhvu/.rvm/gems/ruby-2.1.3/gems/railties-4.1.4/lib/rails/templates/rails/welcome/index.html.erb (10.3ms)
+Completed 200 OK in 70ms (Views: 69.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/secrets/new" for 127.0.0.1 at 2014-11-20 12:10:25 -0500
+
+ActionController::RoutingError - undefined method `validates' for SecretsController:Class:
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:71:in `rescue in controller'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:66:in `controller'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/rails:8:in `<top (required)>'
+  spring (1.1.3) lib/spring/client/rails.rb:27:in `call'
+  spring (1.1.3) lib/spring/client/command.rb:7:in `call'
+  spring (1.1.3) lib/spring/client.rb:26:in `run'
+  spring (1.1.3) bin/spring:48:in `<top (required)>'
+  spring (1.1.3) lib/spring/binstub.rb:11:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/spring:16:in `<top (required)>'
+   () rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/98769d04597734a1/variables" for 127.0.0.1 at 2014-11-20 12:10:25 -0500
+
+
+Started GET "/secrets/new" for 127.0.0.1 at 2014-11-20 12:11:56 -0500
+Processing by SecretsController#new as HTML
+  Rendered secrets/new.html.erb within layouts/application (130.9ms)
+Completed 200 OK in 3225ms (Views: 3180.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:11:59 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:00 -0500
+
+
+Started GET "/secrets/new" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+Processing by SecretsController#new as HTML
+  Rendered secrets/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:12:30 -0500
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:12:41 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"11 Broadway, New York, NY", "message"=>"Hello world!"}, "commit"=>"Create Secret"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError - undefined method `build' for nil:NilClass:
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/app/controllers/secrets_controller.rb:8:in `create'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/rails:8:in `<top (required)>'
+  spring (1.1.3) lib/spring/client/rails.rb:27:in `call'
+  spring (1.1.3) lib/spring/client/command.rb:7:in `call'
+  spring (1.1.3) lib/spring/client.rb:26:in `run'
+  spring (1.1.3) bin/spring:48:in `<top (required)>'
+  spring (1.1.3) lib/spring/binstub.rb:11:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/spring:16:in `<top (required)>'
+   () rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/dfe9724568f59801/variables" for 127.0.0.1 at 2014-11-20 12:12:41 -0500
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:13:02 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"11 Broadway, New York, NY", "message"=>"Hello world!"}, "commit"=>"Create Secret"}
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError - undefined method `build' for #<Class:0x007f9eab8f1078>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/app/controllers/secrets_controller.rb:8:in `create'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/rails:8:in `<top (required)>'
+  spring (1.1.3) lib/spring/client/rails.rb:27:in `call'
+  spring (1.1.3) lib/spring/client/command.rb:7:in `call'
+  spring (1.1.3) lib/spring/client.rb:26:in `run'
+  spring (1.1.3) bin/spring:48:in `<top (required)>'
+  spring (1.1.3) lib/spring/binstub.rb:11:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/spring:16:in `<top (required)>'
+   () rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/d10544e4e4e4dd4f/variables" for 127.0.0.1 at 2014-11-20 12:13:03 -0500
+  [1m[35mSecret Load (0.3ms)[0m  SELECT "secrets".* FROM "secrets"
+
+
+Started GET "/secrets/new" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+Processing by SecretsController#new as HTML
+  Rendered secrets/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:13:26 -0500
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:13:32 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"11 Broadway, New York, NY", "message"=>"Hello world!"}, "commit"=>"Create Secret"}
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError - undefined method `build' for #<Class:0x007f9ea9df17f0>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/app/controllers/secrets_controller.rb:8:in `create'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  thin (1.6.3) lib/thin/connection.rb:86:in `block in pre_process'
+  thin (1.6.3) lib/thin/connection.rb:84:in `pre_process'
+  thin (1.6.3) lib/thin/connection.rb:53:in `process'
+  thin (1.6.3) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.3) lib/eventmachine.rb:187:in `run'
+  thin (1.6.3) lib/thin/backends/base.rb:73:in `start'
+  thin (1.6.3) lib/thin/server.rb:162:in `start'
+  rack (1.5.2) lib/rack/handler/thin.rb:16:in `run'
+  rack (1.5.2) lib/rack/server.rb:264:in `start'
+  railties (4.1.4) lib/rails/commands/server.rb:69:in `start'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:81:in `block in server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:76:in `server'
+  railties (4.1.4) lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+  railties (4.1.4) lib/rails/commands.rb:17:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/rails:8:in `<top (required)>'
+  spring (1.1.3) lib/spring/client/rails.rb:27:in `call'
+  spring (1.1.3) lib/spring/client/command.rb:7:in `call'
+  spring (1.1.3) lib/spring/client.rb:26:in `run'
+  spring (1.1.3) bin/spring:48:in `<top (required)>'
+  spring (1.1.3) lib/spring/binstub.rb:11:in `<top (required)>'
+   () Users/thinhvu/Documents/Development/code/flatiron/knowhere/bin/spring:16:in `<top (required)>'
+   () rails:3:in `<main>'
+
+
+
+Started POST "/__better_errors/2e0aeaadba7baaab/variables" for 127.0.0.1 at 2014-11-20 12:13:33 -0500
+  [1m[36mSecret Load (0.2ms)[0m  [1mSELECT "secrets".* FROM "secrets"[0m
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:14:17 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"11 Broadway, New York, NY", "message"=>"Hello world!"}, "commit"=>"Create Secret"}
+
+
+Started GET "/secrets/new" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SecretsController#new as HTML
+  Rendered secrets/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 167ms (Views: 156.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:21 -0500
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:15:28 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"11 Broadway, New York, NY", "message"=>"Hello world!"}, "commit"=>"Create Secret"}
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["address", "11 Broadway, New York, NY"], ["created_at", "2014-11-20 17:15:45.782322"], ["latitude", 40.7053128], ["longitude", -74.0139114], ["message", "Hello world!"], ["updated_at", "2014-11-20 17:15:45.782322"]]
+  [1m[35m (5.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/secrets/5
+Completed 302 Found in 17022ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/secrets/5" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+Processing by SecretsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mSecret Load (0.2ms)[0m  [1mSELECT  "secrets".* FROM "secrets"  WHERE "secrets"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered secrets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 26ms (Views: 17.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:45 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:15:46 -0500
+
+
+Started POST "/secrets" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+Processing by SecretsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hs2F6zeG9+LyS1YJcsh7rDTe9w1dZ5O5QM6/PTjjbbQ=", "secret"=>{"address"=>"Bryant Park, NY", "message"=>"I am in Bryant Park"}, "commit"=>"Create Secret"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "secrets" ("address", "created_at", "latitude", "longitude", "message", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["address", "Bryant Park, NY"], ["created_at", "2014-11-20 17:16:09.227071"], ["latitude", 40.7535965], ["longitude", -73.9832326], ["message", "I am in Bryant Park"], ["updated_at", "2014-11-20 17:16:09.227071"]]
+  [1m[35m (56.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/secrets/6
+Completed 302 Found in 209ms (ActiveRecord: 56.8ms)
+
+
+Started GET "/secrets/6" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+Processing by SecretsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mSecret Load (0.1ms)[0m  [1mSELECT  "secrets".* FROM "secrets"  WHERE "secrets"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered secrets/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/secrets.css?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/secrets.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-20 12:16:09 -0500

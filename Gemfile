@@ -48,6 +48,7 @@ group :test, :development do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
+  gem 'geocoder'
 end
 
 group :production do
