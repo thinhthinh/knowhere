@@ -4,8 +4,8 @@ class Secret < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
 
-  def self.find_secrets(latitude, longitude)
-    Secret.near([latitude, longitude], 1, :units => :km)  
+  def self.find_secrets(latitude, longitude, range)
+    Secret.near([latitude, longitude], range, :units => :km)  
   end    
   
 end

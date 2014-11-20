@@ -2,7 +2,12 @@ class SecretsController < ApplicationController
 
   def index
     @secrets = Secret.all
-    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude])
+    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 1)
+    @area_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 10)
+    @hash = Gmaps4rails.build_markers(@area_secrets) do |secret, marker|
+      marker.lat secret.latitude
+      marker.lng secret.longitude
+    end
   end
 
   def show
@@ -19,8 +24,6 @@ class SecretsController < ApplicationController
       redirect_to secret_path(@secret.id)
     end
   end
-
-
 
   private
 
