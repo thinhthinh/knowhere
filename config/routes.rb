@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'secrets#index'
+  root 'secrets#welcome'
   resources :current_locations, :only => [:create]
 
   resources :secrets, :only => [:index, :show, :new, :create]
+
+  get 'secrets/welcome' => 'secrets#welcome', as: :secrets_welcome
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

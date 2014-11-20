@@ -20,6 +20,10 @@ class SecretsController < ApplicationController
     end
   end
 
+  def welcome
+    @latitude = session[:latitude]
+    @longitude = session[:longitude]
+  end
 
 
   private

@@ -10,3 +10,4 @@ Secret.create(address: '11 Broadway, New York, NY', message: 'Flatiron is great!
 Secret.create(address: '11 Broadway, New York, NY', message: 'Flatiron is okay!', longitude: -74.0139110, latitude: 40.7053130 )
 Secret.create(address: '11 Broadway, New York, NY', message: 'Flatiron is fun!', longitude: -74.0139110, latitude: 40.7053130 )
 Secret.create(address: '11 Broadway, New York, NY', message: 'Flatiron is wonderful!', longitude: -74.0139110, latitude: 40.7053130 )
+Secret.create(address: '21 Broadway, New York, NY', message: 'I have never been to Flatiron', longitude: -73.920844, latitude: 40.759669 )
