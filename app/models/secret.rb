@@ -6,8 +6,8 @@ class Secret < ActiveRecord::Base
   
   
 
-  def self.find_secrets(latitude, longitude)
-    Secret.near([latitude, longitude], 1, :units => :km)  
+  def self.find_secrets(latitude, longitude, range)
+    Secret.near([latitude, longitude], range, :units => :km)  
   end    
   
 end
