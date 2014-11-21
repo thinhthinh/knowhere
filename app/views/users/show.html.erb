@@ -13,5 +13,25 @@
   <%= @user.email %>
 </p>
 
+<h3>Find <%= @user.username %>'s Secrets</h1>
+<center>
+<div style='width: 400px;'>
+  <div id="multi_markers" style='width: 400px; height: 400px;'></div>
+</div>
+
+<script type='text/javascript'>
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+    var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.map.centerOn(marker);
+  });
+</script>
+</center>
+
+<% if user_authorized? %>
+<%= link_to 'View All My Secrets', my_secrets_path %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% end %>
+<%= link_to 'Home', root_path %>

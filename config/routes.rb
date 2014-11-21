@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
   get 'signup' => 'users#new', :as => 'signup'
+  get 'my_secrets' => 'secrets#my_secrets', :as => 'my_secrets'
   
   resources :current_locations, :only => [:create]
-  resources :secrets, :only => [:index, :show, :new, :create]
+  resources :secrets
   resources :users, except: [:index]
   resources :sessions, :only => [:create]
 

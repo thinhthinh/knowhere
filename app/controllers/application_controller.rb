@@ -15,4 +15,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :user_signed_in?
 
+  def user_authorized?
+    current_user.id == @user.id ? true : false
+  end
+  helper_method :user_authorized?
+
+  def secret_authorized?
+    current_user.id == @secret.user.id ? true : false
+  end
+  helper_method :secret_authorized?
+
 end
