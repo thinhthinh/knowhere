@@ -1,28 +1,30 @@
 $(document).ready(function(){
+  $("#song-input").hide();
 
-$('.courses').on('click', '.delete', function(event){
-    event.stopPropagation();
-    var id = $(this).data('id');
-    $.ajax({url: '/courses/' + id, type: "DELETE"}).done(
-      function(result){
-        var id = result.id;
-        $('[data-id=' + id + ']').parent('.course').remove()
+  $("#secret_message").keydown(function(){
+    var wordCount = 250-($(this).val().length);
+    $("#count").text(function(){
+      if (wordCount < 0){
+        $(".submit_button").hide();
+      }else {
+        $(".submit_button").show();
       }
-    )
+      return wordCount;
+    });
   });
 
-$("#secret_message").keydown(function(){
-  var wordCount = 250-($(this).val().length);
-  $("#count").text(function(){
-    if (wordCount < 0){
-      $(".submit_button").hide();
-    }else {
-      $(".submit_button").show();
-    }
-    return wordCount;
+  $('#song-checkbox').click(function() {
+      var $this = $(this);
+          // $this will contain a reference to the checkbox   
+      if ($this.is(':checked')) {
+          // the checkbox was checked
+          $("#song-input").show(); 
+        } else {
+          // the checkbox was unchecked
+          $("#song-input").hide();
+      }
   });
-});
-
 
 });
 
+  

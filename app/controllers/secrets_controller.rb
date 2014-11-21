@@ -78,7 +78,7 @@ class SecretsController < ApplicationController
   end
 
   def secret_params
-    params.require(:secret).permit(:address, :message, :longitude, :latitude)
+    params.require(:secret).permit(:address, :message, :longitude, :latitude, :song)
   end
 
 end
