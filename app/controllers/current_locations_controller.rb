@@ -1,4 +1,5 @@
 class CurrentLocationsController < ApplicationController
+  
   def create
     session[:longitude] = params[:longitude]
     session[:latitude] = params[:latitude]
@@ -6,6 +7,6 @@ class CurrentLocationsController < ApplicationController
   end
 
   def index
-    
   end
+
 end
