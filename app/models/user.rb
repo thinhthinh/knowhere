@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
     with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   has_secure_password
   has_many :secrets
+  has_many :upvotes
 
 end
