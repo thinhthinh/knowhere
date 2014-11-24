@@ -37,6 +37,20 @@ function initialize() {
   google.maps.event.addListener(autocomplete, 'place_changed', function() {
     fillInAddress();
   });
+
+  // var input = document.getElementById('secret_address');
+  // google.maps.event.addDomListener(input, 'keydown', function(e){
+  //   if (e.keyCode == 13){
+  //     e.preventDefault();
+  //   }
+  // });
+$("#secret_address").keypress(function(e) {
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if(code == 13) { //Enter keycode
+        return false;
+    }
+});
+
 }
 
 function geolocate() {
@@ -48,7 +62,9 @@ function geolocate() {
           geolocation));
     });
   }
+
 }
+
 
 
 
