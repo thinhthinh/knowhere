@@ -13,7 +13,7 @@ class SecretsController < ApplicationController
 
   def show
     @secret = Secret.find(params[:id])
-  end 
+  end
 
   def new
     if user_signed_in?
