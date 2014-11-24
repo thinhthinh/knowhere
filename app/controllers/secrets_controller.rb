@@ -5,10 +5,6 @@ class SecretsController < ApplicationController
     @secrets = Secret.all.sort_by{|s| s.vote_count}.reverse
     @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 1).sort_by{|s| s.vote_count}.reverse
     @area_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 10).sort_by{|s| s.vote_count}.reverse
-    @hash = Gmaps4rails.build_markers(@area_secrets) do |secret, marker|
-      marker.lat secret.latitude
-      marker.lng secret.longitude
-    end
   end
 
   def show

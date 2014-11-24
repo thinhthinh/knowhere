@@ -7,10 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user_secrets = @user.secrets
-    @hash = Gmaps4rails.build_markers(@user_secrets) do |secret, marker|
-      marker.lat secret.latitude
-      marker.lng secret.longitude
-    end
   end
 
   def new
