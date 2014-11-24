@@ -28,7 +28,12 @@ class SecretsController < ApplicationController
     @secret = @user.secrets.build(secret_params)
     if @secret.save
       redirect_to secret_path(@secret.id)
-    end
+    else
+      render "new"
+      # redirect_to new_secret_path
+      # format.html { render :new }
+      # format.json { render json: @secret.errors, status: :unprocessable_entity }
+    end      
   end
 
   def welcome

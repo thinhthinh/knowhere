@@ -25,6 +25,10 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'soundcloud'
+
+gem 'dotenv-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -50,12 +54,14 @@ group :test, :development do
   gem "thin"
   gem 'geocoder'
   gem 'gmaps4rails'
+  gem 'dotenv-rails'
 end
 
 group :production do
   gem "pg"
   gem "google-analytics-rails"
   gem "rails_12factor"
+  gem 'dotenv-rails'
 end
 
 gem "bootstrap-sass", "~> 3.1.1"

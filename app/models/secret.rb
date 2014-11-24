@@ -1,6 +1,8 @@
 class Secret < ActiveRecord::Base
   validates :address, presence: true
   validates :message, presence: true
+  validates :song, format: { with: /.*soundcloud.*/,
+   message: "must use a valid soundcloud url" }
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
   belongs_to :user
@@ -22,6 +24,12 @@ class Secret < ActiveRecord::Base
     self.upvotes.any? do |upvote|
       upvote.user_id == user.id
     end
+  end
+
+  def get_track_id
+    client = SoundCloud.new(:client_id => ENV['SOUNDCLOUD_API_KEY'])
+    track = client.get('/resolve', :url => self.song)
+    track.id
   end
 
   private
