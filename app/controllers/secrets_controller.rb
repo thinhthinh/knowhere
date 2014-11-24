@@ -25,7 +25,9 @@ class SecretsController < ApplicationController
     @secret = @user.secrets.build(secret_params)
     if @secret.save
       redirect_to secret_path(@secret.id)
-    end
+    else
+      render "new"
+    end      
   end
 
   def welcome

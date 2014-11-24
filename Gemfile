@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use SCSS for stylesheets
@@ -24,6 +23,9 @@ gem 'spring',        group: :development
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'soundcloud'
+gem 'dotenv-rails'
+gem 'geocoder'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -48,8 +50,6 @@ group :test, :development do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
-  gem 'geocoder'
-  gem 'dotenv-rails'
 end
 
 group :production do
