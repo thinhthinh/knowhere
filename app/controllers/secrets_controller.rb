@@ -9,6 +9,7 @@ class SecretsController < ApplicationController
 
   def show
     @secret = Secret.find(params[:id])
+    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 1)
   end 
 
   def new

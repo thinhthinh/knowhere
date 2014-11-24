@@ -49,7 +49,7 @@ group :test, :development do
   gem "guard-rspec", require: false
   gem "thin"
   gem 'geocoder'
-  # gem 'gmaps4rails'
+  gem 'dotenv-rails'
 end
 
 group :production do
