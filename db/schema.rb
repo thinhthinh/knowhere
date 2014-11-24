@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121201607) do
+ActiveRecord::Schema.define(version: 20141124144822) do
 
   create_table "current_locations", force: true do |t|
     t.float    "longitude"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20141121201607) do
   end
 
   add_index "secrets", ["user_id"], name: "index_secrets_on_user_id"
+
+  create_table "upvotes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "secret_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "upvotes", ["secret_id"], name: "index_upvotes_on_secret_id"
+  add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -1,10 +1,10 @@
 class SecretsController < ApplicationController
-  before_action :set_secret, only: [:show, :edit, :destroy, :update]
+  before_action :set_secret, only: [:show, :edit, :destroy, :update, :upvote]
 
   def index
-    @secrets = Secret.all
-    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 1)
-    @area_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 10)
+    @secrets = Secret.all.sort_by{|s| s.vote_count}.reverse
+    @nearby_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 1).sort_by{|s| s.vote_count}.reverse
+    @area_secrets = Secret.find_secrets(session[:latitude], session[:longitude], 10).sort_by{|s| s.vote_count}.reverse
     @hash = Gmaps4rails.build_markers(@area_secrets) do |secret, marker|
       marker.lat secret.latitude
       marker.lng secret.longitude
@@ -69,6 +69,11 @@ class SecretsController < ApplicationController
     else
       redirect_to root_path, notice: 'You can only delete secrets you created.'
     end
+  end
+
+  def upvote
+    @secret.update_votes(current_user)
+    redirect_to secrets_path
   end
 
   private

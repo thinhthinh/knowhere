@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => 'logout'
   get 'signup' => 'users#new', :as => 'signup'
   get 'my_secrets' => 'secrets#my_secrets', :as => 'my_secrets'
+  post '/secrets/:id/upvote' => 'secrets#upvote', :as => :upvote
   
   resources :current_locations, :only => [:create]
   resources :secrets
