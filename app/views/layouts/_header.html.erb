@@ -18,6 +18,7 @@
           <li class=""><%= link_to "Log In", login_path %></li>
         <% else %>
           <li class=""><%= link_to "Post", new_secret_path %></li>
+          <li class=""><%= link_to "Profile", user_path(current_user) %></li>
           <li class=""><%= link_to "My Secrets", my_secrets_path %></li>
           <li class=""><%= link_to "Log Out", logout_path %></li>
         <% end %>
