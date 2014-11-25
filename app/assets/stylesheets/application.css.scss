@@ -17,11 +17,30 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
+@import url(http://fonts.googleapis.com/css?family=Lato:100); 
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
+  font-family: 'Lato', sans-serif;
   padding-top: 70px;
   padding-bottom: 30px;
+  background-color: #0c0c0c;
+  color: #ecf0f1;
+}
+
+/* unvisited link */
+a:link {
+    color: #ecf0f1;
+}
+
+/* visited link */
+a:visited {
+    color: #ecf0f1;
+}
+
+/* selected link */
+a:active {
+    color: #ecf0f1;
 }
 
 .theme-dropdown .dropdown-menu {

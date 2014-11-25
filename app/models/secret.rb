@@ -1,8 +1,9 @@
 class Secret < ActiveRecord::Base
   validates :address, presence: true
   validates :message, presence: true
-  validates :song, format: { with: /.*soundcloud.*/,
-   message: "must use a valid soundcloud url" }
+  validates :song, :allow_blank => true, 
+    format: { with: /.*soundcloud.*/,
+    message: "must use a valid soundcloud url" }
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
   belongs_to :user
