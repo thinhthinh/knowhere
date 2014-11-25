@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
   validates :username, 
     uniqueness: { :case_sensitive => false }, 
-    :presence => {:message => "Your alias is used to identify you on the site."}
+    :presence => {:message => ": You must have an alias."}
   validates :email, 
     uniqueness: { :case_sensitive => false }, 
-    :allow_nil => true,
-    with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+    :allow_nil => true
   has_secure_password
   has_many :secrets
   has_many :upvotes
-
 end
