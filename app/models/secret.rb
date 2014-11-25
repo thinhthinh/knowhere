@@ -34,7 +34,7 @@ class Secret < ActiveRecord::Base
   def soundcloud_url_must_be_track
     if self.song && self.song != ""
       begin 
-        self.song.get_track_id
+        self.get_track_id
       rescue
         errors.add(:song, "Your soundcloud url must be a valid track url.")
       end
