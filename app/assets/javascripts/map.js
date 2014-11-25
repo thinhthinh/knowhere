@@ -4,7 +4,7 @@ $(document).ready(function(){
 
   function initialize() {
     var mapOptions = {
-      zoom: 18
+      zoom: 16
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -47,7 +47,7 @@ $(document).ready(function(){
           fillOpacity: 0.35,
           map: map,
           center: pos,
-          radius: 500
+          radius: 250
         };
         // Add the circle for this city to the map.
         cityCircle = new google.maps.Circle(circleOptions);
