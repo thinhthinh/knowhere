@@ -14,14 +14,13 @@
     <nav class="navbar-collapse collapse" id="main-nav" role="navigation">
       <ul class="nav navbar-nav navbar-right">
         <% if !user_signed_in? %>
-          <li class=""><%= notice %><</li>
           <li class=""><%= link_to "Sign Up", signup_path %></li>
           <li class=""><%= link_to "Log In", login_path %></li>
         <% else %>
           <li class=""><%= link_to "Post", new_secret_path %></li>
           <li class=""><%= link_to "My Secrets", my_secrets_path %></li>
           <li class=""><%= link_to "Log Out", logout_path %></li>
-          <% end %>
+        <% end %>
       </ul>
     </nav>
   </div>
