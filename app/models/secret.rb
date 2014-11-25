@@ -1,9 +1,9 @@
 class Secret < ActiveRecord::Base
   validates :address, presence: true
-  validates :message, presence: true
-  validate :soundcloud_url_must_be_track
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
+  validates :message, presence: true
+  validate :soundcloud_url_must_be_track
   belongs_to :user
   has_many :upvotes
 
