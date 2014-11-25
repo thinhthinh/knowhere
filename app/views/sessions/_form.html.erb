@@ -8,12 +8,10 @@
   <div class="panel-body">
   <%= form_tag sessions_path do %>
   <div class="form-group">
-    <%= label_tag :username %><br>
-    <%= text_field_tag :username, params[:username], class: "form-control" %>
+    <%= text_field_tag :username, params[:username], placeholder: "Enter your alias", class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= label_tag :password %><br>
-    <%= password_field_tag :password, "", class: "form-control" %>
+    <%= password_field_tag :password, "", placeholder: "Enter your password", class: "form-control" %>
   </div>
   <div class="submit_button text-center">
     <%= submit_tag "Log In", id: "btn-contact", class: "btn btn-primary btn-lg" %>

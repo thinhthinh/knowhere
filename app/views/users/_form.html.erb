@@ -20,17 +20,13 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :username, 'Alias' %><br>
-      <%= f.text_field :username, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :password %><br>
-      <%= f.password_field :password , class: "form-control"%><br>
+      <%= f.text_field :username, placeholder: "Choose an alias", class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation, 'Confirm Your Password' %><br>
-      <%= f.password_field :password_confirmation, class: "form-control" %><br>
+      <%= f.password_field :password, placeholder: "Enter your password", class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, placeholder: "Confirm your password", class: "form-control" %>
     </div>
     <div class="submit_button text-center">
       <%= f.submit "Create", id: "btn-contact", class: "btn btn-primary btn-lg" %>
