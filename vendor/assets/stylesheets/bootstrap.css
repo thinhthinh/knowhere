@@ -3765,8 +3765,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+.navbar-toggle{
+  background-color: black;
+}
 .navbar-toggle:focus {
-  outline: none;
+  outline: #fff;
+  background-color: #999999;
+
 }
 .navbar-toggle .icon-bar {
   display: block;

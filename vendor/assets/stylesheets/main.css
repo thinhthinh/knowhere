@@ -135,7 +135,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggle {
-  background-color: #ecf0f1;
+  background-color: #0c0c0c;
+  border: 1px solid white;
 }
 .navbar-toggle .icon-bar {
   background-color: #fff;
