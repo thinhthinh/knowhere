@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
   root 'secrets#welcome'
   get 'secrets/welcome' => 'secrets#welcome', as: :secrets_welcome
+  get 'secrets/test' => 'secrets#test', as: :secrets_test
+
 
   get 'login' => 'sessions#new', :as => 'login'
   get 'logout' => 'sessions#destroy', :as => 'logout'
