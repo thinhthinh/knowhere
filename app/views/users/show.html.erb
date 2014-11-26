@@ -1,37 +1,19 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<h3>Find <%= @user.username %>'s Secrets</h1>
-<center>
-<div style='width: 400px;'>
-  <div id="multi_markers" style='width: 400px; height: 400px;'></div>
+<div style="height: 100px;" id="hero-unit" class="hero-unit"></div>
+<div id="hero-unit" class="hero-unit">
+<div class="col-sm-4 col-sm-offset-4 panel panel-default">
+<div style="height: 20px"></div>
+  <div class="panel-heading">
+    <h1 class="text-center"><%= @user.username %></h1>
+  </div>
+  <div class="panel-body">
+    <div class="secret-message">Find <%= @user.username %>'s secrets.
+    </div>
+  </div>
+  <%= content_tag "div", id: "map-canvas", data: {url: user_url(@user)}, style: "height: 325px; width: 100%" do %>
+  <% end %>
+  <% if current_user && user_authorized? %>
+    <div style="height: 20px;"></div>
+    <div class="submit_button text-center"><%= link_to "Edit Profile", edit_user_path(@user), id: "btn-contact", class: "btn btn-primary btn-lg" %></div>
+  <% end %>
 </div>
-
-<script type='text/javascript'>
-  var handler = Gmaps.build('Google');
-  handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
-    var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    handler.map.centerOn(marker);
-  });
-</script>
-</center>
-
-<% if user_authorized? %>
-<%= link_to 'View All My Secrets', my_secrets_path %> |
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
-<%= link_to 'Home', root_path %>
+</div>

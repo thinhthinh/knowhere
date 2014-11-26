@@ -30,15 +30,17 @@ body{
    margin-top: -9px;
    padding-right: 20px;
    font-weight: 100;
-
-
  }
 
  .song-input {
   margin-top: -9px;
-   padding-left: 40px;
-   color: #999999;
+  padding-left: 40px;
+  color: #999999;
  }
+
+.flash-notice {
+  margin-top: 12px;
+}
 
  .black-background {
   height: 300px;
@@ -46,38 +48,28 @@ body{
   background-color: black;
  }
 
-//  .work-item-list li .fake-img {
-//   // -webkit-transition-property: all;
-//   // -moz-transition-property: all;
-//   // -o-transition-property: all;
-//   // transition-property: all;
-//   // -webkit-transition-duration: 0.2s;
-//   // -moz-transition-duration: 0.2s;
-//   // -o-transition-duration: 0.2s;
-//   // transition-duration: 0.2s;
-//   // -webkit-transition-timing-function: linear;
-//   // -moz-transition-timing-function: linear;
-//   // -o-transition-timing-function: linear;
-//   // transition-timing-function: linear;
-//   max-width: 100%;
-//   width: 600px;
-//   height: 500px;
-// }
-// .work-item-list li:hover .fake-img {
-  
-// }
 
-// .work-item-list li{
-//   margin-top: -18px;
-//   border: 1px solid white;
-// }
+.secret-message {
+  color: #ecf0f1;
+  font-weight: 100;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ }
 
-// .center-message {
-//   display:flex;
-//   align-items:center;
-// } 
+ .secret-author {
+  font-weight: 100;
+  text-align: right;
+  padding-bottom: 10px;
+  font-size: 12px;
+  margin-right: -12px;
+ }
 
-// .center-message {
-//   align-items:center;
-// }
+  .lost-body {
+  font-weight: 100;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #ecf0f1;
+ }
+
 
