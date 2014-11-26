@@ -24,7 +24,7 @@ class SecretsController < ApplicationController
     @user = User.find(session[:user_id])
     @secret = @user.secrets.build(secret_params)
     if @secret.save
-      redirect_to secret_path(@secret.id)
+      redirect_to my_secrets_path(@secret.id)
     else
       render "new"
     end      
