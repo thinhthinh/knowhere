@@ -233,10 +233,10 @@ h1, h2, h3, h4, h5, h6 {
 /* LINKS
 /* --------------------- */
 a {
-  color: #ffae3f;
+  color: ##ecf0f1;
 }
 a:hover, a:focus {
-  color: #ffc472;
+  color: ##ecf0f1;
   text-decoration: none;
 }
 
@@ -244,7 +244,7 @@ a:hover, a:focus {
 /* SECTION
 /* --------------------- */
 .section {
-  background-color: #fafafa;
+  background-color: black;
   padding: 70px 0;
 }
 .section.darker {
@@ -252,7 +252,7 @@ a:hover, a:focus {
 }
 .section.most-dark {
   background-color: #4d4d4d;
-  color: #fafafa;
+  color: ##ecf0f1;
 }
 
 .section-heading {
@@ -264,11 +264,11 @@ a:hover, a:focus {
 }
 .section-heading h2 {
   font-size: 3em;
-  color: #ffae3f;
+  color: #ecf0f1;
 }
 .section-heading p {
   font-size: 1.5em;
-  color: #c2c2c2;
+  color: #ecf0f1;
 }
 .section-heading hr {
   display: -moz-inline-stack;
@@ -282,7 +282,7 @@ a:hover, a:focus {
 }
 
 .section-content h3 {
-  color: #c2c2c2;
+  color: #ecf0f1;
 }
 
 /* --------------------- */
