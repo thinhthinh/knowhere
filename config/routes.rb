@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'nearby_secrets' => 'maps#nearby_secrets', :as => "nearby_secrets"
   get 'area_secrets' => 'maps#area_secrets', :as => "area_secrets"
   post '/secrets/:id/upvote' => 'secrets#upvote', :as => :upvote
+  get 'about' => 'application#about'
   
   resources :current_locations, :only => [:create]
   resources :secrets
