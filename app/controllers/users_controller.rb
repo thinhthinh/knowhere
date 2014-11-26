@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
     @user_secrets = @user.secrets
+    respond_to do |format|
+      format.html
+      format.json { render json: @user_secrets }
+    end
   end
 
   def new

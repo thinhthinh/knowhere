@@ -233,10 +233,10 @@ h1, h2, h3, h4, h5, h6 {
 /* LINKS
 /* --------------------- */
 a {
-  color: #ffae3f;
+  color: #ecf0f1;;
 }
 a:hover, a:focus {
-  color: #ffc472;
+  color: #fff;
   text-decoration: none;
 }
 
