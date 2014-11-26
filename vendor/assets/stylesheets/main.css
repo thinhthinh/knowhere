@@ -7693,16 +7693,20 @@ img.mfp-img {
   }
 }
 .work-item-list .work-item-info {
+
   position: absolute;
-  left: 0;
-  bottom: 50%;
-  margin-bottom: -2.5em;
-  width: 100%;
+  /*left: 0;*/
+  /*bottom: 29px;*/
+  /*margin-bottom: -2.5em;*/
+  /*width: 100%;*/
   text-align: center;
   color: #fff;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 .work-item-list .work-item-info i {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+
   opacity: 0.2;
   font-size: 96px;
   position: absolute;
@@ -7713,18 +7717,22 @@ img.mfp-img {
 }
 @media screen and (max-width: 1024px) {
   .work-item-list .work-item-info i {
+
     display: none;
   }
 }
 .work-item-list .work-item-info h3 {
+
   color: #fff;
 }
 @media screen and (min-width: 548px) and (max-width: 1024px) {
   .work-item-list .work-item-info h3 {
+
     font-size: 1.3em;
     line-height: 8px;
   }
   .work-item-list .work-item-info p {
+    background-color: black;
     font-size: 0.8em;
   }
 }
