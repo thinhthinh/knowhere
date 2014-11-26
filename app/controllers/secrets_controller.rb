@@ -75,6 +75,10 @@ class SecretsController < ApplicationController
     redirect_to secrets_path
   end
 
+  def test
+    @secrets = Secret.all
+  end
+
   private
 
   def set_secret
