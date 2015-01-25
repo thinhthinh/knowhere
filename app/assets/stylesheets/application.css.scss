@@ -25,18 +25,19 @@
 body{
  /* font-family: 'Lato', sans-serif;*/
 }
- .count {
-   color: #999999;
-   margin-top: -9px;
-   padding-right: 20px;
-   font-weight: 100;
- }
 
- .song-input {
+.count {
+  color: #999999;
+  margin-top: -9px;
+  padding-right: 20px;
+  font-weight: 100;
+}
+
+.song-input {
   margin-top: -9px;
   padding-left: 40px;
   color: #999999;
- }
+}
 
 
 .flash-notice {
@@ -45,29 +46,30 @@ body{
 
 
 .secret-message {
-  color: #ecf0f1;
+  color: rgb(236,240,241);
   font-weight: 100;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
- }
+}
 
- .secret-author {
+.secret-author {
   font-weight: 100;
   text-align: right;
   padding-bottom: 10px;
   font-size: 12px;
   margin-right: -12px;
- }
+}
 
-  .lost-body {
+.lost-body {
   font-weight: 100;
   text-align: center;
   padding-bottom: 10px;
-  color: #ecf0f1;
+  color: rgb(236,240,241);
  }
- .about{
+
+.about {
   border: 1px solid #999999;
- }
+}
 
 
