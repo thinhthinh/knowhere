@@ -1,2 +1,4 @@
 tmp/
 log/development.log
+db/seeds.rb
+db/development.sqlite3
